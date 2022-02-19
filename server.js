@@ -1,6 +1,6 @@
 
 const mongo = require('mongodb').MongoClient;
-const client = require('socket.io')(4000).sockets;
+const client = require('socket.io')(4000)
 
 mongo.connect('mongodb+srv://dbUser:mongoPW@cluster0.q876g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', function(err, db) {
   //const collection = client.db("test").collection("devices");
@@ -10,7 +10,7 @@ mongo.connect('mongodb+srv://dbUser:mongoPW@cluster0.q876g.mongodb.net/myFirstDa
   console.log('Connected to Mongo!');
 
   // Connect to socket.io
-  client.on('connection', function(){
+  client.on('connection', function(socket){
       let chat = db.collection('chats');
 
       // Create function to send status
